@@ -9,7 +9,8 @@ SECRET_KEY = 'django-insecure-cwag*f*ko7@=!7#^hqf5rwxxfs$*druf_=-e@jej0p(x+)_)hd
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['django-project1-dypm.onrender.com', 'localhost', '127.0.0.1']
+
 
 # Application definition
 INSTALLED_APPS = [
