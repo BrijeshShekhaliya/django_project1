@@ -1,0 +1,272 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+
+<style>
+    body {
+        background: linear-gradient(to right, rgba(34, 193, 195, 0.8), rgba(253, 187, 45, 0.8));
+        font-family: 'Helvetica', sans-serif;
+        color: #333;
+    }
+    .hero-section {
+        background: url("{% static 'images/donation.jpg' %}") no-repeat center center;
+        background-size: cover;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        color: white;
+        text-align: center;
+    }
+    .hero-overlay {
+        background: rgba(0, 0, 0, 0.6);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .hero-content {
+        position: relative;
+        z-index: 1;
+    }
+    .section-heading {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+    .section-subheading {
+        color: #f8f9fa;
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+    }
+    .btn-custom {
+        background-color: #337ab7;
+        color: #fff;
+        border: none;
+        border-radius: 25px;
+        padding: 10px 20px;
+        font-size: 18px;
+        transition: background-color 0.3s;
+        margin: 10px;
+    }
+    .btn-custom:hover {
+        background-color: #286090;
+    }
+    .card {
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    }
+    .contact-card {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    .contact-icon {
+        font-size: 2rem;
+    }
+    .footer {
+        background-color: #343a40; 
+        color: white; 
+        padding: 30px 0;
+    }
+    .impact-card {
+        background: #f8f9fa; 
+        padding: 20px; 
+        border-radius: 15px; 
+        margin-bottom: 20px;
+    }
+    .benefit-icon {
+        font-size: 3rem; 
+        color: #28a745;
+    }
+    @media (max-width: 768px) {
+        .section-heading {
+            font-size: 2rem;
+        }
+        .btn-custom {
+            font-size: 16px;
+            padding: 8px 15px;
+        }
+    }
+</style>
+
+<div class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1 class="section-heading">Join Us in Making a Difference</h1>
+        <p class="section-subheading">Your kindness can change lives. Donate or volunteer today!</p>
+        <a href="{% url 'login_donor' %}" class="btn btn-custom">Donate Now</a>
+        <a href="{% url 'login_volunteer' %}" class="btn btn-custom">Volunteer</a>
+    </div>
+</div>
+
+<!-- About Section -->
+<section class="py-5 text-center">
+    <div class="container">
+        <h2 class="section-heading">About Us</h2>
+        <h3 class="section-subheading">Making a positive impact in the community.</h3>
+        <div class="row">
+            <div class="col-lg-6 mb-4">
+                <div class="card p-4">
+                    <img src="{% static 'images/donation.jpg' %}" class="card-img-top rounded-circle mx-auto" alt="Donation" width="200" height="200">
+                    <h4 class="mt-3">Our Mission</h4>
+                    <p class="text-muted">We aim to support communities by providing essential items and services.</p>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="card p-4">
+                    <img src="{% static 'images/volunteer.png' %}" class="card-img-top rounded-circle mx-auto" alt="Volunteer" width="200" height="200">
+                    <h4 class="mt-3">Volunteer Opportunities</h4>
+                    <p class="text-muted">Your time and skills can bring joy to many. Join us today!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Benefits of Donation Section -->
+<section class="py-5 bg-light text-center">
+    <div class="container">
+        <h2 class="section-heading">Benefits of Your Donation</h2>
+        <h3 class="section-subheading">Every contribution counts and makes a difference!</h3>
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <div class="card benefit-card text-center p-4">
+                    <i class="fa fa-heart benefit-icon"></i>
+                    <h5>Your Impact</h5>
+                    <p>Help families in need by providing essential supplies and support.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card benefit-card text-center p-4">
+                    <i class="fa fa-users benefit-icon"></i>
+                    <h5>Community Support</h5>
+                    <p>Empower communities through programs that foster growth and development.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card benefit-card text-center p-4">
+                    <i class="fa fa-smile benefit-icon"></i>
+                    <h5>Change Lives</h5>
+                    <p>Your kindness creates smiles and brightens the lives of many.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Our Impact Section -->
+<section class="py-5">
+    <div class="container text-center">
+        <h2 class="section-heading">Our Impact</h2>
+        <h3 class="section-subheading">See how your contributions have made a difference.</h3>
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <div class="impact-card">
+                    <h5>1,000+ Families Helped</h5>
+                    <p>Over 1,000 families have received essential items such as food and clothing through our initiatives.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="impact-card">
+                    <h5>Volunteer Hours: 5,000+</h5>
+                    <p>Our volunteers have dedicated over 5,000 hours to help organize events and distribute supplies.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="impact-card">
+                    <h5>Community Projects: 25+</h5>
+                    <p>We've launched over 25 community projects aimed at empowerment, education, and support.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Get Involved Section -->
+<section class="py-5 bg-light text-center">
+    <div class="container">
+        <h2 class="section-heading">Get Involved</h2>
+        <h3 class="section-subheading">Make a meaningful difference today!</h3>
+        <div class="row">
+            <div class="col-lg-6 mb-4">
+                <div class="card h-100">
+                    <img src="https://static.pexels.com/photos/7096/people-woman-coffee-meeting.jpg" class="card-img-top" alt="Helping Others">
+                    <div class="card-body">
+                        <h5 class="card-title">Best Way to Help Others</h5>
+                        <p class="card-text">Join our community in spreading kindness and generosity.</p>
+                        <p class="card-text">Your contribution, no matter how small, can create a ripple effect of kindness. Together, we can make a significant impact!</p>
+                        <a href="{% url 'login_donor' %}" class="btn btn-custom">Donate Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card h-100">
+                    <img src="https://static.pexels.com/photos/7357/startup-photos.jpg" class="card-img-top" alt="Volunteer Work">
+                    <div class="card-body">
+                        <h5 class="card-title">Become a Volunteer Today</h5>
+                        <p class="card-text">Your time is invaluable. Help us make a difference!</p>
+                        <p class="card-text">Sign up for our upcoming training sessions and be part of something greater. Let’s create positive change together!</p>
+                        <a href="{% url 'login_volunteer' %}" class="btn btn-custom">Join as Volunteer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Updated Contact Section -->
+<section id="contact" class="py-5">
+    <div class="container text-center">
+        <h2 class="section-heading">Contact Us</h2>
+        <h3 class="section-subheading">We're here to help you.</h3>
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <div class="contact-card">
+                    <i class="fa fa-map-marker contact-icon text-success"></i>
+                    <h5>Location</h5>
+                    <p>Ahmedabad, Gujarat</p>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="contact-card">
+                    <i class="fa fa-envelope contact-icon text-danger"></i>
+                    <h5>Email</h5>
+                    <p><a href="mailto:brijeshpatel48562@gmail.com" class="text-dark">brijeshpatel48562@gmail.com</a></p>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="contact-card">
+                    <i class="fa fa-phone contact-icon text-primary"></i>
+                    <h5>Phone</h5>
+                    <p>+91 9327853536</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 mb-4 offset-lg-4">
+                <div class="contact-card">
+                    <i class="fa fa-clock-o contact-icon text-warning"></i>
+                    <h5>Working Hours</h5>
+                    <p>9:00 AM - 7:00 PM</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer text-center">
+    <div class="container">
+        <p>&copy; 2023 Your Organization. All Rights Reserved.</p>
+    </div>
+</footer>
+
+{% endblock main %}
