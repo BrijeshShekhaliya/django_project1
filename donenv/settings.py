@@ -9,6 +9,12 @@ SECRET_KEY = 'django-insecure-cwag*f*ko7@=!7#^hqf5rwxxfs$*druf_=-e@jej0p(x+)_)hd
 
 DEBUG = True
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://django-project1-dypm.onrender.com",
+]
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 ALLOWED_HOSTS = ['django-project1-dypm.onrender.com', 'localhost', '127.0.0.1']
 
 
